@@ -40,12 +40,7 @@ C11 `_Atomic` 非対応環境でも動作するように、状態管理は `vola
 |------|------|
 | `bool rtos_task_create(rtos_task_t **out, const char* name, rtos_task_entry_t entry, void* arg, int stack_hint, int prio_hint)` | タスク生成（開始しない） |
 | `bool rtos_task_start(rtos_task_t *t)` | タスク開始（サスペンド解除） |
-| `void rtos_task_stop(rtos_task_t *t)` | 停止要求フラグを立てる（協調停止） |
-| `void rtos_task_delete(rtos_task_t *t, uint32_t join_timeout_ticks)` | 終了待ち＋リソース解放 |
-| `bool rtos_should_stop(void)` | タスク内から停止要求フラグを確認 |
-| `void rtos_yield(void)` | 実行権を明示的に譲る（協調実行向け） |
 
-### イベント（同期）
 | 関数 | 概要 |
 |------|------|
 | `bool rtos_event_create(rtos_event_t* ev)` | イベント生成（manual-reset） |
@@ -124,3 +119,8 @@ gcc -O2 -Wall -Wextra -o rtos_win32_interlocked.exe rtos_win32_interlocked.c
 * 時間精度は10ms単位（`timeBeginPeriod`などで改善可能）
 
 ---
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+詳細は `LICENSE` ファイルをご覧ください。
